@@ -5,7 +5,7 @@ const Projectdetails=new mongoose.Schema({
         type:String,
         required:true,
     },
-    projectapikey:{
+    projectName:{
         type:String,
         required:true,
 
