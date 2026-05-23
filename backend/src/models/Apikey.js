@@ -5,11 +5,11 @@ const Apikeydetail=new mongoose.Schema({
         type:String,
         required:true,
     },
-    Originalkey:{
+    iv:{
         type:String,
-        required:true,
-
+        required:true
     }
+    
 })
 
 const ApikeyUser=mongoose.model("ApiKeyUser",Apikeydetail)
