@@ -25,3 +25,17 @@ exports.encryptedApikey=(UserApi)=>{
    iv: iv.toString("hex")
 };
 }
+exports.decryptApikey=(UserApiKey,iv)=>{
+    const decipher=crypto.createDecipheriv(
+        algorithm,
+        secretKey,
+        Buffer.from(iv,"hex")
+    )
+    let decrypted=decipher.update(
+        UserApiKey,
+        "hex",
+        "utf-8"
+    )
+    decrypted+=decipher.final("utf-8")
+    return decrypted;
+}

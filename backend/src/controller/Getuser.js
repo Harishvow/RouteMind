@@ -7,3 +7,7 @@ exports.getUser=async(req,res)=>{
     )
     res.json(Userdata.map(item => item.UserApiKey))
 }
+
+exports.AcessApi=async(req,res)=>{
+
+}

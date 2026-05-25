@@ -8,8 +8,11 @@ const Apikeydetail=new mongoose.Schema({
     iv:{
         type:String,
         required:true
+    },
+    originalApikey:{
+        type:String,
+        required:true
     }
-    
 })
 
 const ApikeyUser=mongoose.model("ApiKeyUser",Apikeydetail)
