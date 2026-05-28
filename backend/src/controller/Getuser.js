@@ -1,13 +1,7 @@
-const ApikeyUser=require("../models/Apikey")
+const RetriveId=require("../service/Retriveparent")
 
 exports.getUser=async(req,res)=>{
-    const Userdata=await ApikeyUser.find(
-        {},
-        "UserApiKey"
-    )
-    res.json(Userdata.map(item => item.UserApiKey))
-}
-
-exports.AcessApi=async(req,res)=>{
-
+     const userkey=req.body.Userapikey
+    const llmapikey=await RetriveId.RetriveId(userkey)
+    res.send(llmapikey)
 }

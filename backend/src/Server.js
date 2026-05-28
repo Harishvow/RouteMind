@@ -18,6 +18,6 @@ ConnectDb();
 app.get("/test", (req, res) => {
     res.send("Test endpoint working");
 });
-app.listen(5003, () => {
-    console.log(`Server is running on port 5003`);
+app.listen(5005, () => {
+    console.log(`Server is running on port 5005`);
 });

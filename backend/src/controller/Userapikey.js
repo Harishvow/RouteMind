@@ -1,19 +1,25 @@
-const ApikeyUser = require("../models/Apikey")
-const {encryptedApikey}=require("../service/Encryption")
+const Parent=require("../models/Parent")
 
 exports.SaveUserApikey=async(req,res)=>{
-    console.log("Controller reached");
     const UserApi=req.body.UserApikey
-    const  encrypted=encryptedApikey(UserApi)
-    
+    const Provider=req.body.Provider
+    let ParentID;
+    const lastParent =
+    await Parent.findOne().sort({
+        ParentId:-1
+    });
+        if(lastParent){
+        ParentID=lastParent.ParentId+1
 
-    const userkey=new ApikeyUser({
-        UserApiKey:encrypted.encryptedData,
-        iv:encrypted.iv
-
+    }
+    else{
+        ParentID=1
+    }
+    const userkey=new Parent({
+        ParentId:ParentID,
+        Originalkey:UserApi,
+        Provider:Provider,
     })
-
-
     await userkey.save()
     res.send("API Key saved successfully");
 }
