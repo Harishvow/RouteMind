@@ -8,8 +8,8 @@ exports.SaveUserApikey=async(req,res)=>{
     await Parent.findOne().sort({
         ParentId:-1
     });
-        if(lastParent){
-        ParentID=lastParent.ParentId+1
+    if(lastParent){
+        ParentID=lastParent.ParentId+1;
 
     }
     else{

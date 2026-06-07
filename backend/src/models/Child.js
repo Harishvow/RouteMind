@@ -11,7 +11,7 @@ const ChildId=new mongoose.Schema({
     },
 
     ApiId:{
-        type:String,
+        type:Number,
         required:true,
 
     }

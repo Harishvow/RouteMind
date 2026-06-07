@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Parentschema=new mongoose.Schema({
     ParentId:{
-        type:String,
+        type:Number,
         required:true,
         unique:true
     },
